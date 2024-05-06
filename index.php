@@ -34,7 +34,7 @@ $users = $connection->query("SELECT id, name, email FROM users ORDER BY id DESC"
             </div>
             <div class="addUser" onclick="addUser()">+</div>
         </div>
-        <div class='userInfo'>
+        <div class='userInfo' id="userInfo">
             <?php
                 foreach($users as $user) {
                     echo("

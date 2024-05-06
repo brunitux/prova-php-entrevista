@@ -33,7 +33,7 @@ function editar(userId) {
         // state 4 e o http.status 200, requisicao deu certo.
         if (ajax.readyState == 4 && ajax.status == 200) {
             const data = ajax.responseText;
-            console.log(data);
+            // console.log(data);
             const valores = JSON.parse(data);
 
             document.getElementById("saveData").addEventListener("click", ()=>{
@@ -82,7 +82,7 @@ function alterUser() {
         // state 4 e o http.status 200, requisicao deu certo.
         if (ajax.readyState == 4 && ajax.status == 200) {
             const data = ajax.responseText;
-            console.log(data);
+            // console.log(data);
         }
     }
 }
@@ -112,4 +112,23 @@ document.getElementById("closeContainerBox").addEventListener("click", ()=> {
     userName.value = "";
     userEmail.value = "";
     colorInput.value = "1";
+});
+// barra de pesquisa
+const search = document.getElementById("search");
+
+search.addEventListener("input", ()=>{
+    const filter = search.value.toUpperCase();
+
+    const userInfoDiv = document.getElementById("userInfo");
+    const userDivs = userInfoDiv.getElementsByClassName("info");
+
+    // show/noshow conforme a pesquisa
+    for (var i = 0; i < userDivs.length; i++) {
+        var userName = userDivs[i].getElementsByClassName("nome")[0];
+        if (userName.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            userDivs[i].style.display = "";
+        } else {
+            userDivs[i].style.display = "none";
+        }
+    }
 });
