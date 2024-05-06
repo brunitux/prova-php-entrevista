@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Orbitron', sans-serif;
+    color: var(--text-color-ligth);
+}
+:root{
+    --background: #6d6969;
+    --text-color-ligth: #f1f1f1;
+    --text-color-dark: #1f1f1f;
+    --background-search: #0a0a0a;
+    --background-info: #0f0f0fe8;
+    --background-user-list: #9509e6da;
+    --border-color: #bd30ff;
+}
+html{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: var(--background);
+    color: var(--text-color-ligth);
+}
+body{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url("./background.jpg");
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* barra de pesquisa - begin */
+.painel{
+    width: 20rem;
+    height: 2rem;
+    display: flex;
+    flex-direction: row;
+    margin-top: 6rem;
+    margin-bottom: 2rem;
+}
+.searchForm{
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    flex-direction: row;
+}
+.search{
+    width: 100%;
+    color: var(--text-color-ligth);
+    border: 0.1rem solid var(--border-color);
+    text-align: center;
+    background-color: var(--background-search);
+}
+.addUser{
+    cursor: pointer;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border: 0.1rem solid var(--border-color);
+    background-color: var(--background-user-list);
+    color: var(--text-color-ligth);
+}
+/* barra de pesquisa - end */
+
+/* lista de usuários - begin */
+.userList{
+    width: 40rem;
+    height: 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    /* align-items: center; */
+    padding: 1rem;
+    background-color: var(--background-user-list);
+}
+.userInfo{
+    width: 38rem;
+    height: 25rem;
+    overflow-y: auto;
+    padding-inline: 0.5rem;
+    background-color: #590083b0;
+}
+.info{
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    border: 0.1rem solid var(--border-color);
+    margin-block: 0.5rem;
+    background-color: var(--background-info);
+}
+.infoTitle{
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    border: 0.1rem solid var(--border-color);
+    margin-block: 0.5rem;
+    padding-left: 1rem;
+    background-color: var(--background-info);
+}
+.nome, .email{
+    width: 10rem;
+    background-color: transparent;
+    margin-inline-start: 0.5rem;
+    color: var(--text-color-ligth);
+    font-weight: bold;
+}
+.botoes{
+    width: 10rem;
+    height: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+.btn{
+    width: 4rem;
+    height: 1.5rem;
+    margin-inline: 0.5rem;
+    color: var(--text-color-dark);
+    border: 0.1rem solid var(--border-color);
+    border-radius: 2rem;
+}
+.azul{
+    color: #0e26ff;
+    text-shadow: 0 0 10px #0921ff;
+}
+.verde{
+    color: #21ff34;
+    text-shadow: 0 0 10px #06ff1a;
+}
+.vermelho{
+    color: #ff3636;
+    text-shadow: 0 0 10px #ff0606;
+}
+.amarelo{
+    color: #fff021;
+    text-shadow: 0 0 10px #ffee05;
+}
+/* lista de usuários - end */
+
+/* caixa de edição/ adição de usuário - begin */
+.userContainerBkg{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #0000004d;
+    backdrop-filter: blur(0.2rem);
+}
+.userContainer{
+    width: 20rem;
+    height: 14rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 0.1rem solid var(--border-color);
+    background-color: var(--background-user-list);
+}
+.nameInput, .emailInput{
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    text-align: center;
+    border: 0.1rem solid var(--border-color);
+    margin-bottom: 0.5rem;
+    background-color: var(--background-info);
+    outline: 0;
+}
+.saveData{
+    cursor: pointer;
+    width: 4rem;
+    height: 2rem;
+    text-align: center;
+    border: 0.1rem solid var(--border-color);
+    background-color: var(--background-info);
+}
+.close{
+    cursor: pointer;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border: 0.1rem solid var(--border-color);
+    background-color: var(--background-user-list);
+    color: var(--text-color-ligth);
+    position: relative;
+    left: 10rem;
+    top: -3rem;
+}
+select {
+    width: 6rem;
+    color: var(--text-color-ligth);
+    border: 0.1rem solid var(--border-color);
+    padding-block: 0.4rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    background-color: var(--background-info);
+}
+/* caixa de edição/ adição de usuário - end */
