@@ -132,3 +132,48 @@ search.addEventListener("input", ()=>{
         }
     }
 });
+function executarFuncao() {
+    var links = document.querySelectorAll('.info .nome');
+    
+    links.forEach(function(link) {
+        var id = link.id;
+        // console.log("ID do link:", id);
+        const idNew = id.replace('user', '');
+        minhaFuncao(idNew, id);
+    });
+}
+
+function minhaFuncao(id, originalId) {
+    const ajax = new XMLHttpRequest();
+    ajax.open("POST", "../Controller/colors.php", true);
+    ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    ajax.send(`userId=${id}`);
+
+    ajax.onreadystatechange = function() {
+        if (ajax.readyState == 4 && ajax.status == 200) {
+            const data = ajax.responseText;
+            const valores = JSON.parse(data);
+
+            let colorClass;
+            switch (valores.color) {
+                case "1":
+                    colorClass = "azul";
+                    break;
+                case "2":
+                    colorClass = "vermelho";
+                    break;
+                case "3":
+                    colorClass = "amarelo";
+                    break;
+                case "4":
+                    colorClass = "verde";
+                    break;
+            }
+            if (colorClass) {
+                document.getElementById(originalId).classList.add(colorClass);
+            }
+        }
+    }
+}
+
+document.addEventListener("DOMContentLoaded", executarFuncao);

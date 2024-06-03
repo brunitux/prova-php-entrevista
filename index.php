@@ -39,7 +39,7 @@ $users = $connection->query("SELECT id, name, email FROM users ORDER BY id DESC"
                 foreach($users as $user) {
                     echo("
                         <div class='info'>
-                            <a class='nome'>$user->name</a>
+                            <a class='nome' id='user$user->id'>$user->name</a>
                             <a class='email'>$user->email</a>
                             <div class='botoes'>
                                 <button class='btn editar' onclick='editar(\"$user->id\")'>Editar</button>
